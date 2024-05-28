@@ -1,7 +1,9 @@
 name: HawkScan
 on:
-  repository_dispatch:
-    types: [integration-initial-test]
+  push: 
+    branches:
+      - main
+  pull_request:
 jobs:
   hawkscan:
     name: HawkScan

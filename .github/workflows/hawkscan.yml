@@ -10,16 +10,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Create ${{ github.event.client_payload.repoName }} app directory
-        run: mkdir -p common/build/integrationTests/hawkscan-action/apps/${{ github.event.client_payload.repoName }}
-      - name: Navigate to ${{ github.event.client_payload.repoName }} app directory
-        run: cd common/build/integrationTests/hawkscan-action/apps/${{ github.event.client_payload.repoName }}
+      - name: Create $GITHUB_REPOSITORY app directory
+        run: mkdir -p common/build/integrationTests/hawkscan-action/apps/$GITHUB_REPOSITORY
+      - name: Navigate to $GITHUB_REPOSITORY app directory
+        run: cd common/build/integrationTests/hawkscan-action/apps/$GITHUB_REPOSITORY
       - name: Checkout vulny repo
-        run: git clone https://github.com/${{ github.event.client_payload.ajstinn2 }}/${{ github.event.client_payload.AJ-S-javaspringvulny }}.git
-      - name: Run ${{ github.event.client_payload.repoName }}
+        run: git clone https://github.com/$GITHUB_REPOSITORY.git
+      - name: Run $GITHUB_REPOSITORY
         run: docker-compose up -d
       - name: Navigate to repo root directory
-        run: cd /home/runner/work/${{ github.event.client_payload.repoName }}/${{ github.event.client_payload.repoName }}
+        run: cd /home/runner/work/$GITHUB_REPOSITORY/$GITHUB_REPOSITORY
       - name: Run HawkScan
         id: run-hawkscan
         uses: stackhawk/hawkscan-action@main

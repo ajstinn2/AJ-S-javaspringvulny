@@ -10,16 +10,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Create ${{ github.event.client_payload.AJ-S-javaspringvulny }} app directory
-        run: mkdir -p common/build/integrationTests/hawkscan-action/apps/${{ github.event.client_payload.AJ-S-javaspringvulny }}
-      - name: Navigate to ${{ github.event.client_payload.AJ-S-javaspringvulny }} app directory
-        run: cd common/build/integrationTests/hawkscan-action/apps/${{ github.event.client_payload.AJ-S-javaspringvulny }}
+      - name: Create ${{ github.event.client_payload.repoName }} app directory
+        run: mkdir -p common/build/integrationTests/hawkscan-action/apps/${{ github.event.client_payload.repoName }}
+      - name: Navigate to ${{ github.event.client_payload.repoName }} app directory
+        run: cd common/build/integrationTests/hawkscan-action/apps/${{ github.event.client_payload.repoName }}
       - name: Checkout vulny repo
-        run: git clone https://github.com/ajstinn2/AJ-S-javaspringvulny.git
-      - name: Run ${{ github.event.client_payload.AJ-S-javaspringvulny }}
+        run: git clone https://github.com/${{ github.event.client_payload.ajstinn2 }}/${{ github.event.client_payload.AJ-S-javaspringvulny }}.git
+      - name: Run ${{ github.event.client_payload.repoName }}
         run: docker-compose up -d
       - name: Navigate to repo root directory
-        run: cd /home/runner/work/${{ github.event.client_payload.AJ-S-javaspringvulny }}/${{ github.event.client_payload.AJ-S-javaspringvulny }}
+        run: cd /home/runner/work/${{ github.event.client_payload.repoName }}/${{ github.event.client_payload.repoName }}
       - name: Run HawkScan
         id: run-hawkscan
         uses: stackhawk/hawkscan-action@main

@@ -19,7 +19,7 @@ jobs:
       - name: Run $GITHUB_REPOSITORY
         run: docker-compose up -d
       - name: Navigate to repo root directory
-        run: cd /home/runner/work/$GITHUB_REPOSITORY
+        run: cd /home/runner/work/${GITHUB_REPOSITORY#$GITHUB_REPOSITORY_OWNER/}/${GITHUB_REPOSITORY#$GITHUB_REPOSITORY_OWNER/}
       - name: Run HawkScan
         id: run-hawkscan
         uses: stackhawk/hawkscan-action@main

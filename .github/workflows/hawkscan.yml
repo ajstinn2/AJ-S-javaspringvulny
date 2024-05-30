@@ -15,7 +15,7 @@ jobs:
       - name: Navigate to ${{ github.event.client_payload.AJ-S-javaspringvulny }} app directory
         run: cd common/build/integrationTests/hawkscan-action/apps/${{ github.event.client_payload.AJ-S-javaspringvulny }}
       - name: Checkout vulny repo
-        run: git clone https://github.com/${{ github.event.client_payload.ajstinn2 }}/${{ github.event.client_payload.AJ-S-javaspringvulny }}.git
+        run: git clone https://github.com/ajstinn2/AJ-S-javaspringvulny.git
       - name: Run ${{ github.event.client_payload.AJ-S-javaspringvulny }}
         run: docker-compose up -d
       - name: Navigate to repo root directory

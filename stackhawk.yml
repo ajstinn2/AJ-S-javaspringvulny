@@ -1,5 +1,5 @@
 app:
-  applicationId: ${APP_ID:747797df-f803-4cf4-9486-7020f58b8deb}
+  applicationId: 877b9348-2ff2-409d-921c-e211b1cbac12
   env: ${APP_ENV:Development}
   host: ${APP_HOST:https://localhost:9000}
   waitForAppTarget:

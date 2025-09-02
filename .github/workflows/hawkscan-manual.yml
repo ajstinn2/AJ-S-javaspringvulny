@@ -25,7 +25,7 @@ jobs:
         uses: stackhawk/hawkscan-action@main
         with:
           apiKey: ${{ secrets.HAWK_API_KEY }}
-          configurationFiles: stackhawk.d/stackhawk.yml stackhawk.d/stackhawk-jsv-json-token.yml stackhawk.d/stackhawk-github-pr.yml
+          configurationFiles: stackhawk.yml
         env:
           #APP_ID: ${{ secrets.appId }}
           NO_PROGRESS: true

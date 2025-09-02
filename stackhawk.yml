@@ -26,3 +26,7 @@ app:
     testPath:
       path: /search
       success: "HTTP.*200.*"
+  openApiConf:
+    filePaths:
+    - hawk://9cf1fa81-3e7f-40e5-8b4f-eb2ba47ca410
+    
